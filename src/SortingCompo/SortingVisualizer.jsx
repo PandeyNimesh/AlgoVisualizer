@@ -4,6 +4,7 @@ import Control from "./Control";
 import { bubbleSort } from "../algorithm/BubbleSort";
 import { MergeSort } from "../algorithm/MergeSort";
 import { selectionSort } from "../algorithm/SelectionSort";
+import { bfsTraversal } from "../algorithm/bfsTraversal";
 
 function SortingVisualizer() {
   const [array, setArray] = useState([]);
@@ -21,6 +22,7 @@ function SortingVisualizer() {
   }, [userInuptArray]);
 
   const handleNewArrayGenrate = () => {
+    console.log("handleNewArrayGenrate")
     const newArray = Array.from({ length: 15 }, () =>
       Math.floor(Math.random() * 500)
     );
@@ -28,6 +30,7 @@ function SortingVisualizer() {
   };
 
   const reSet = () => {
+    console.log("reSet")
     setArray([]);
     setSelectedSorting('');
   };
@@ -36,21 +39,36 @@ function SortingVisualizer() {
     const sortingMethod = e.target.value;
     setSelectedSorting(sortingMethod);
     setIsSorting(true);
-    let animationArr = [];
+    
+    let animationArr, sortedArray;
+    
     switch (sortingMethod) {
       case 'bubbleSort':
-        animationArr = bubbleSort(array);
+        animationArr = bubbleSort([...array]); // Copy array before sorting
+        bubbleAnimation(animationArr);
+        sortedArray = animationArr[animationArr.length - 1]; // Get final sorted array
         break;
       case "mergeSort":
-        animationArr = MergeSort(array);
+        animationArr = MergeSort([...array]);
+        animateMergeSorting(animationArr);
+        sortedArray = animationArr[animationArr.length - 1];
         break;
       case "selectionSort":
-        animationArr = selectionSort(array);
+        animationArr = selectionSort([...array]);
+        animateSelectionSorting(animationArr);
+        sortedArray = animationArr[animationArr.length - 1];
+        break;
+
+        animationArr = bfsTraversal([...array]);
+        animatebfsTraversalSorting(animationArr);
+        sortedArray = animationArr[animationArr.length - 1];
         break;
       default:
-        break;
+        return;
     }
-  };
+    
+
+};
 
 
   function bubbleAnimation(animation) {
@@ -149,6 +167,8 @@ function SortingVisualizer() {
       setIsSorting(false);
     }, animations.length * speed);
   };
+
+
 
   return (
     <div>

@@ -1,6 +1,6 @@
 import React from 'react'
 
-const GraphVisualizer = () => {
+const GraphVisualizer = ([...array]) => {
   return (
     <div>
 
