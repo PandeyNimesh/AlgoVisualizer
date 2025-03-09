@@ -2,7 +2,7 @@ import React from "react";
 
 function Home() {
   return (
-    <div className="min-h-screen bg-gray-900/95 text-white flex flex-col items-center justify-center px-6">
+    <div className="min-h-screen flex flex-col items-center justify-center px-6">
       {/* Hero Section */}
       <div className="text-center max-w-3xl">
         <h1 className="text-4xl md:text-6xl font-bold text-blue-400">
@@ -33,10 +33,6 @@ function Home() {
         />
       </div>
 
-      {/* Footer */}
-      <footer className="mt-12 text-gray-400 text-sm">
-        Built with ❤️ for DSA enthusiasts.
-      </footer>
     </div>
   );
 };

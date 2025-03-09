@@ -5,9 +5,13 @@ const Footer = () => {
     return (
         <footer className="w-full bg-gray-900 text-gray-300 py-8">
             <div className="container mx-auto flex flex-col md:flex-row justify-between items-center px-6">
-                
+
                 <div className="mb-6 md:mb-0">
                     <h2 className="text-2xl font-semibold font-serif tracking-wide text-gray-200 transition-all duration-300 hover:text-white hover:scale-105">AlgoVisualizer</h2>
+                    <p className="mt-1 text-gray-400 text-xs">
+                        Built with ❤️ for DSA enthusiasts.
+                    </p>
+
                 </div>
 
                 <div className="flex gap-5">

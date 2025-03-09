@@ -6,21 +6,18 @@ import SortingVisualizer from './SortingCompo/SortingVisualizer.jsx'
 import GraphVisualizer from './SortingCompo/GraphVisualizer'
 import Home from './pages/home'
 import './App.css'
+import BaseLayout from './layout/base.jsx'
 
 const App = () => {
   return (
     <Router>
-      <div className='flex flex-col min-h-screen'>
-        <Navbar />
-        <div className='flex-1'>
-          <Routes>
-            <Route exact path="/" element={<Home />} />
-            <Route path="/sorting" element={<SortingVisualizer />} />
-            <Route path="/graph" element={<GraphVisualizer />} />
-          </Routes>
-        </div>
-        <Footer />
-      </div>
+      <BaseLayout>
+        <Routes>
+          <Route exact path="/" element={<Home />} />
+          <Route path="/sorting" element={<SortingVisualizer />} />
+          <Route path="/graph" element={<GraphVisualizer />} />
+        </Routes>
+      </BaseLayout>
     </Router>
   )
 }

@@ -1,10 +1,44 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 const Navbar = () => {
-    return (
-        <nav className="w-full bg-gradient-to-b from-gray-900 to-gray-800 bg-opacity-60 backdrop-filter backdrop-blur-lg flex justify-between items-center px-6 py-4 shadow-md">
+    const [showNavbar, setShowNavbar] = useState(true);
+    const [lastScrollY, setLastScrollY] = useState(0);
+    const [isCursorAtTop, setIsCursorAtTop] = useState(false);
 
+    const controlNavbar = () => {
+        if (window.scrollY > lastScrollY && !isCursorAtTop) {
+            setShowNavbar(false);
+        } else {
+            setShowNavbar(true);
+        }
+        setLastScrollY(window.scrollY);
+    };
+
+    const handleMouseMove = (event) => {
+        if (event.clientY <= 50) {
+            setIsCursorAtTop(true);
+            setShowNavbar(true);
+        } else {
+            setIsCursorAtTop(false);
+        }
+    };
+
+    useEffect(() => {
+        window.addEventListener('scroll', controlNavbar);
+        window.addEventListener('mousemove', handleMouseMove);
+        return () => {
+            window.removeEventListener('scroll', controlNavbar);
+            window.removeEventListener('mousemove', handleMouseMove);
+        };
+    }, [lastScrollY, isCursorAtTop]);
+
+    return (
+        <nav
+            className={`fixed top-0 w-full bg-gradient-to-b from-gray-900 to-gray-800 bg-opacity-60 backdrop-filter backdrop-blur-lg flex justify-between items-center px-6 py-4 shadow-md transition-transform duration-300 ${
+                showNavbar ? 'translate-y-0' : '-translate-y-full'
+            }`}
+        >
             {/* Logo */}
             <Link
                 to="/"

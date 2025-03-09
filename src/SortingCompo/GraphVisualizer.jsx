@@ -2,7 +2,9 @@ import React from 'react'
 
 const GraphVisualizer = () => {
   return (
-    <div>GraphVisualizer</div>
+    <div>
+
+    </div>
   )
 }
 
