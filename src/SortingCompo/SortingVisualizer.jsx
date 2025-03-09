@@ -39,9 +39,9 @@ function SortingVisualizer() {
     const sortingMethod = e.target.value;
     setSelectedSorting(sortingMethod);
     setIsSorting(true);
-    
+
     let animationArr, sortedArray;
-    
+
     switch (sortingMethod) {
       case 'bubbleSort':
         animationArr = bubbleSort([...array]); // Copy array before sorting
@@ -59,16 +59,17 @@ function SortingVisualizer() {
         sortedArray = animationArr[animationArr.length - 1];
         break;
 
+      case "bsftraversal":
         animationArr = bfsTraversal([...array]);
-        animatebfsTraversalSorting(animationArr);
-        sortedArray = animationArr[animationArr.length - 1];
+        // animatebfsTraversalSorting(animationArr);
+        // sortedArray = animationArr[animationArr.length - 1];
         break;
       default:
         return;
     }
-    
 
-};
+
+  };
 
 
   function bubbleAnimation(animation) {
