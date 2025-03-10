@@ -1,27 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import SortingCard from '../components/SortingCard';
-
+import data from "../data.json";
 const Sorting = () => {
-    const list = [{
-        id: 1,
-        mediaUrl: "./bubble-sort.gif",
-        slug: "bubble-sort",
-        sortingType: "Bubble Sort",
-        sortingDesc: "Bubble Sort is the simplest sorting algorithm that works by repeatedly swapping the adjacent elements if they are in wrong order."
-    }, {
-        id: 3,
-        mediaUrl: "./selection-sort.mp4",
-        slug: "selection-sort",
-        sortingType: "Selection Sort",
-        sortingDesc: "Selection sort is a simple sorting algorithm. This sorting algorithm is an in-place comparison-based algorithm in which the list is divided into two parts, the sorted part at the left end and the unsorted part at the right end."
-    }, {
-        id: 2,
-        mediaUrl: "./merge-sort.gif",
-        slug: "merge-sort",
-        sortingType: "Merge Sort",
-        sortingDesc: "Merge Sort is a Divide and Conquer algorithm. It divides the input array into two halves, calls itself for the two halves, and then merges the two sorted halves."
-    }];
+    const list = data.linear_datastructure
 
     return (
         <div className='flex flex-col items-center min-h-screen pt-12'>

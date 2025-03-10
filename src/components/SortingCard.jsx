@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const SortingCard = ({ slug = "", id = 1212, mediaUrl = "", sortingType = "", sortingDesc = "" }) => {
     return (
         <Link
-            to={`/sorting/${slug}`}
+            to={`/sort/${slug}`}
             className="w-96 h-auto flex flex-col rounded-lg cursor-pointer bg-neutral-800 transition-all duration-300 ease-in-out hover:shadow-md hover:shadow-gray-300"
         >
             <div
